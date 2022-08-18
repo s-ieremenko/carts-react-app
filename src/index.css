@@ -172,6 +172,11 @@ nav h3 {
     margin-left: auto;
 }
 
+.counter p {
+    text-align: center;
+    font-size: 17px;
+}
+
 .card-total {
     display: flex;
     justify-content: space-between;
@@ -198,4 +203,11 @@ footer {
     background: transparent;
     cursor: pointer;
 
+}
+
+.empty {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #857c7c;
 }

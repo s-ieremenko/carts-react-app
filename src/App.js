@@ -1,12 +1,12 @@
 import React from 'react'
-import MainPage from "./MainPage";
+import MainPage from './MainPage'
 
 function App() {
-  return (
-    <div className="container">
-<MainPage/>
-    </div>
-  );
+    return (
+        <div className="container">
+            <MainPage />
+        </div>
+    )
 }
 
-export default App;
+export default App

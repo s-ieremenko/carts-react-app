@@ -1,39 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CartItem from './CartItem'
 import Footer from './Footer'
-import { items } from './data'
+import { useGlobalContext } from './context'
 
 const MainContent = () => {
-    const [carts, setCarts] = useState(items)
-
-    const removeItem = (id) => {
-        const newListOfItems = carts.filter((item) => item.id !== id)
-        setCarts(newListOfItems)
-    }
+    const { carts } = useGlobalContext()
     return (
         <main>
             <section className="cart">
                 <h2>Your bag</h2>
                 {carts.length ? (
-                    carts.map((cart) => {
-                        const { id, img, price, title, quantity } =
-                            cart
-                        return (
-                            <CartItem
-                                key={id}
-                                id={id}
-                                title={title}
-                                img={img}
-                                quantity={quantity}
-                                price={price}
-                                removeItem={removeItem}
-                            />
-                        )
-                    })
+                    <>
+                        {carts.map((cart) => {
+                            return (
+                                <CartItem key={cart.id} {...cart} />
+                            )
+                        })}
+                        <Footer />
+                    </>
                 ) : (
-                    <div>no items</div>
+                    <div className="empty">is currently empty</div>
                 )}
-                <Footer />
             </section>
         </main>
     )
